@@ -1,9 +1,9 @@
 {
-    "name": "andreskrey/readability.php",
+    "name": "s17er/readability.php",
     "type": "library",
     "description": "A PHP port of Readability.js",
     "keywords": ["readability", "html"],
-    "homepage": "https://github.com/andreskrey/readability",
+    "homepage": "https://github.com/s17er/readability.php",
     "license": "Apache-2.0",
     "authors": [
         {
