@@ -14,11 +14,11 @@
     ],
     "autoload": {
         "psr-4": {
-            "s17er\\Readability\\": "src/"
+            "andreskrey\\Readability\\": "src/"
         }
     },
     "autoload-dev": {
-        "psr-4": {"s17er\\Readability\\Test\\": "test"}
+        "psr-4": {"andreskrey\\Readability\\Test\\": "test"}
     },
     "require": {
         "php": ">=7.0.0",
