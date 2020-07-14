@@ -127,6 +127,11 @@ class Readability
         $this->logger = $this->configuration->getLogger();
     }
 
+    public function test() 
+    {
+        print("hello.". PHP_EOL);
+    }
+
     /**
      * Main parse function.
      *
