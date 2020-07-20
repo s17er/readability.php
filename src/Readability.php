@@ -36,6 +36,13 @@ class Readability
     protected $content = null;
 
     /**
+     * Summary of the content.
+     *
+     * @var string|null
+     */
+    protected $summary = null;
+
+    /**
      * Excerpt of the article.
      *
      * @var string|null
@@ -125,11 +132,6 @@ class Readability
     {
         $this->configuration = $configuration;
         $this->logger = $this->configuration->getLogger();
-    }
-
-    public function test() 
-    {
-        print("hello.". PHP_EOL);
     }
 
     /**
@@ -235,9 +237,23 @@ class Readability
 
         $this->setContent($result);
 
+        $this->generateSummary($result);
+
         $this->logger->info('*** Parse successful :)');
 
         return true;
+    }
+
+    /**
+     * @param DOMDocument $content
+     */
+    protected function generateSummary(DOMDocument $doc)
+    {
+        $paragraphs = explode("\n", trim($doc->textContent));
+        foreach($paragraphs as &$paragraph) {
+            $paragraph = trim($paragraph);
+        }
+        $this->summary = implode("\n", $paragraphs);
     }
 
     /**
@@ -1710,6 +1726,14 @@ class Readability
     public function getContent()
     {
         return ($this->content instanceof DOMDocument) ? $this->content->C14N() : null;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getSummary()
+    {
+        return $this->summary;
     }
 
     /**
