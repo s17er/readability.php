@@ -943,6 +943,7 @@ class Readability
 
             // Add points for any commas within this paragraph.
             $contentScore += count(explode(',', $node->getTextContent(true)));
+            $contentScore += count(explode('。', $node->getTextContent(true))); // for JP.
 
             // For every 100 characters in this paragraph, add another point. Up to 3 points.
             $contentScore += min(floor(mb_strlen($node->getTextContent(true)) / 100), 3);
